@@ -25,7 +25,7 @@ Extração de dados do site Last.fm via API
 
 <tr>
 <td width="30%">
-        <img src="lastfm_pipeline/blob/main/assets/python.png"style="width=125; height:75px;">
+        <img src="assets/python.png"style="width=125; height:75px;">
     </td>
     <td style="width:100">Linguagem de programação utilizada para realizar a extração desses dados do site bem como fazer as devidas tratativas.
     </td>
