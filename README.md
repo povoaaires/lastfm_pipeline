@@ -41,7 +41,7 @@ Extração de dados do site Last.fm via API
 <div class="flow">
 <h2>Arquitetura</h2><br>
 
-<img src="lastfm_pipeline/blob/main/assets/arch_flow.png">
+<img src="assets/arch_flow.png">
 
 </div>
 
