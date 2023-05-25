@@ -16,7 +16,7 @@ Extração de dados do site Last.fm via API
 
 <tr>
 <td width="30%">
-        <img src="lastfm_pipeline/blob/main/assets/ADLS.png"style="width=125; height:75px;">
+        <img src="assets/arch_flow.png"style="width=125; height:75px;">
     </td>
     <td style="width:100">Separado em três camadas, raw, cleansed e curated, sendo que a primeira camada recebe o dado cru, a intermediária faz a agregação de todos os dados em um único arquivo e a camada curated é a de disponibilização para o cliente final consumir
     </td>
