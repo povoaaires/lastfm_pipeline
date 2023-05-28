@@ -6,8 +6,11 @@ import os
 
 
 def SendLocal(load, name_file,path):
-    with open(f"{path}{name_file}.json", "w") as file:
-        json.dump(load,file)
+    json_object = json.dumps(load, indent = 4) 
+    with open(f"{name_file}.json", "w") as outfile: 
+        outfile.write(json_object)
+    # with open(f"{path}{name_file}.json", "w") as file:
+    #     json.dump(load,file)
 
 
         
