@@ -1,42 +1,32 @@
-import requests
+import os
+from dotenv import load_dotenv
+import json
+import exctract.get_data as get
+import exctract.load_data as load
 
-def ExtractGeneral(general, url, app, key):
-    
-    headers = {
-        'user-agent': app
-    }
-    
-    body = {
-        'api_key': key,
-        'method': general,
-        'format': 'json'
-    }
-    
-    try:
-        request = requests.get(url, headers=headers, params=body)
-    except Exception as ex:
-        print(ex)
-    
-    return request
+load_dotenv()
+
+key_api = os.getenv("api_key")
+app_api = os.getenv("app_project")
+url_api = os.getenv("url_api")
+path = os.getenv("path")
+
+methods_general = ['chart.gettopartists','chart.gettoptracks','chart.gettoptags']
+methods_user = ['chart.gettopartists','chart.gettoptracks','chart.gettoptags']
+#exctract
+r = get.ExtractGeneral(methods_general[0], url_api, app_api, key_api)
 
 
-def ExtractUser(user_method,user, url, app, key):
-    
-    headers = {
-        'user-agent': app
-    }
-    
-    body = {
-        'api_key': key,
-        'method': user_method,
-        'user': user,
-        'format': 'json'
-    }
-    try:
-        request = requests.get(url, headers=headers, params=body)
-    except Exception as ex:
-        print(ex)
-        
-    return request
-    
+#main
+artistas = r.json()
+artistas_exctraction = artistas['artists']['artist']
 
+projeto = 'lastfm'
+categoria = 'artista'
+nome = 'artistas'
+
+#load local
+load.SendLocal(artistas_exctraction,nome,path)
+
+#load on cloud
+load.raw(projeto,categoria,nome,artistas_exctraction)
